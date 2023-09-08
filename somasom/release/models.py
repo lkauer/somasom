@@ -1,4 +1,6 @@
 from django.db import models
+from artist.models import Artist
+import uuid
 
 # Create your models here.
 class Release(models.Model):

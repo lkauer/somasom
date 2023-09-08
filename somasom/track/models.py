@@ -1,4 +1,6 @@
 from django.db import models
+from song.models import Song
+import uuid
 
 # Create your models here.
 class Track(models.Model):
