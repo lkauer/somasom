@@ -1,9 +1,6 @@
 <html>
     <head></head>
     <body>
-        
-        
-        {% block nav %}
         <div>
             <ul>
                 <a href="/"><li>Home</li></a>
@@ -11,10 +8,16 @@
                 <a href="/release"><li>Lançamentos</li></a>
             </ul>
         </div>
-        {% endblock %}
         <input type="text" placeholder="Pesquisar artista, lançamento, musica, track"><button> Pesquisar</button>
-        <div id="content">
-            {% block content %}{% endblock %}
-        </div>
+        <h1>Resultado da pesquisa</h1>
+            <div style="display:flex;">
+                <div style="display: 1; padding: 1%; margin: 1%;">
+                    <a href="/artist/3">
+                        <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                        <h4>coração problema</h4>
+                    </a>
+                </div>
+            </div>
+        
     </body>
 </html>

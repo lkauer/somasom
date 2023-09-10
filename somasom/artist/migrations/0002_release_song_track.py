@@ -23,23 +23,12 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Song',
-            fields=[
-                ('id_song', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('nm_song', models.CharField(max_length=100)),
-                ('ds_song', models.CharField(max_length=500)),
-                ('sg_song', models.BinaryField()),
-                ('release', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='artist.release')),
-            ],
-        ),
-        migrations.CreateModel(
             name='Track',
             fields=[
                 ('id_track', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('nm_track', models.CharField(max_length=100)),
                 ('ds_track', models.CharField(max_length=500)),
                 ('sg_track', models.BinaryField()),
-                ('song', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='artist.song')),
             ],
         ),
     ]

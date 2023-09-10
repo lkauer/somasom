@@ -31,9 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
+    'manager.apps.ManagerConfig',
+    'public.apps.PublicConfig',
     'artist.apps.ArtistConfig',
     'release.apps.ReleaseConfig',
-    'song.apps.SongConfig',
     'track.apps.TrackConfig',
     'django.contrib.admin',
     'django.contrib.auth',
