@@ -1,0 +1,48 @@
+{% block content %}
+
+<div>
+    <h1>Cadastro de lançamento </h1>
+    <form>
+        <h3>Dados do lançamento</h3>
+        <label>Nome</label>
+        <input type="text" placeholder="nome"/>
+        <br/>
+        <label>Descrição</label>
+        <textarea type="text" placeholder="Descrição do artista"> </textarea>
+        <br/>
+        <label>Capa do lançamento</label>
+        <input type="file"/>
+        <br/>
+        <label>Publico</label>
+        <input type="checkbox">
+        <br/>
+        <label>Single</label>
+        <input type="radio" name="release_type">
+        <label>Album</label>
+        <input type="radio" name="release_type">
+        {% comment %} <br/> {% endcomment %}
+        {% comment %} <label>Arquivo final</label>
+        <input type="file"/> {% endcomment %}
+        <br>
+        <label>Colaboradores</label>
+            <select>
+                <option>Coração problema</option>
+                <option>Batuca na bituca</option>
+            </select>
+            <br/>
+        <h3>faixas do lançamento</h3>
+        <label>guia</label>
+        <input type="file"/>
+        <br/>
+        <label>BPM</label>
+        <input type="number" placeholder="75"/>
+        <br/>
+        <label>item da guia</label>
+        <input type="file"/>
+        <br/>
+        <label>item da guia</label>
+        <input type="file"/>
+    </form>    
+    <a href="/manager"> Voltar </a>
+</div>
+{% endblock %}
