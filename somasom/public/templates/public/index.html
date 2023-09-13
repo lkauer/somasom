@@ -1,14 +1,8 @@
-<html>
-    <head></head>
-    <body>
-        <div>
-            <ul>
-                <a href="/"><li>Home</li></a>
-                <a href="/artist"><li>Artistas</li></a>
-                <a href="/release"><li>Lançamentos</li></a>
-            </ul>
-        </div>
-        <input type="text" placeholder="Pesquisar artista, lançamento, musica, track"><button> <a href="/search">Pesquisar</a> </button>
+
+        {% extends "public/base_menu.html" %}
+
+        {% block content %}
+
         <h1>home do site</h1>
         <h2>Artistas</h2>
             <div style="display:flex;">
@@ -81,5 +75,5 @@
             </div>
         </div>
         
-    </body>
-</html>
+
+        {% endblock %}
