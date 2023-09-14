@@ -7,14 +7,17 @@
         {% block nav %}
         <div>
             <ul>
-                <a href="/"><li>Home</li></a>
-                <a href="/artist"><li>Artistas</li></a>
-                <a href="/release"><li>Lançamentos</li></a>
-                <a href="/manager"><li>Painel</li></a>
+                <li><a href="/"><li>Home</li></a></li>
+                <li><a href="/artist"><li>Artistas</li></a></li>
+                <li><a href="/release"><li>Lançamentos</li></a></li>
+                <li><a href="/manager"><li>Painel</li></a></li>
+                <li>
+                    <a><input type="text" placeholder="Pesquisar artista, lançamento, musica, track"><button> Pesquisar</button></a>
+                </li>
             </ul>
         </div>
         {% endblock %}
-        <input type="text" placeholder="Pesquisar artista, lançamento, musica, track"><button> Pesquisar</button>
+        <br/>
         <div id="content">
             {% block content %}{% endblock %}
         </div>
