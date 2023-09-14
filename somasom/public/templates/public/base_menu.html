@@ -1,10 +1,9 @@
+{% load static %}
 <html>
-    <head></head>
-    {% load static %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    </head>
     <body>
-        <h1 style="{% static base_menu.css %}" >teste</h1>
-        
-
         {% block nav %}
         <div>
             <ul>
