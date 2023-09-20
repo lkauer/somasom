@@ -1,12 +1,14 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.http import Http404
+from .models import Artist
 
 
 def index(request):
+    artist_list = Artist.objects.all()
     template = loader.get_template("artist/index.html")
     context = {
-        
+        "artist_list": artist_list
     }
     return HttpResponse(template.render(context, request))
 

@@ -4,55 +4,13 @@
 
 <div style="height:30%; width:100%; background-color:green"> <h1>Artistas</h1> </div>
 <div style="display:flex;">
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/2">
-            <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-            <h4>Juquinha</h4>
-        </a>
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-    </div>
-</div>
-<div style="display:flex;">
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/2">
-            <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-            <h4>Juquinha</h4>
-        </a>
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/artist/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-    </div>
+    {% for artist in artist_list %}
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/artist/2">
+                <img src="{{artist.ph_artist}}"/>
+                <h4>{{ artist.nm_artist }}</h4>
+            </a>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
