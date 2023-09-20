@@ -18,3 +18,10 @@ def search(request):
         
     }
     return HttpResponse(template.render(context, request))
+
+def manifest(request):
+    template = loader.get_template("public/manifest.html")
+    context = {
+        
+    }
+    return HttpResponse(template.render(context, request))

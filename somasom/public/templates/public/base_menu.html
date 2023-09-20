@@ -7,12 +7,18 @@
         {% block nav %}
         <div>
             <ul>
-                <li><a href="/"><li>Home</li></a></li>
-                <li><a href="/artist"><li>Artistas</li></a></li>
-                <li><a href="/release"><li>Lançamentos</li></a></li>
-                <li><a href="/manager"><li>Painel</li></a></li>
+                <li><a href="/"><div style="background-color:green; width:100%; height:2%"> Som-A-Som </div></a></li>
+                <li><a href="/artist">Artistas</a></li>
+                <li><a href="/release">Lançamentos</a></li>
+                {% comment %} <li><a href="/manager">Painel</a></li> {% endcomment %}
                 <li>
-                    <a><input type="text" placeholder="Pesquisar artista, lançamento, musica, track"><button> Pesquisar</button></a>
+                    <form action="/search" style="margin:0">
+                    <a>
+                            <input type="text" id="search" placeholder="Pesquisar artista, lançamento, musica, track">
+                            <input class="button" type="submit" value="Pesquisar">
+                        </a>
+                    </form>
+                        
                 </li>
             </ul>
         </div>
@@ -21,5 +27,10 @@
         <div id="content">
             {% block content %}{% endblock %}
         </div>
+        <ul>
+            <li><a href="https://github.com/lkauer/somasom" target="_blank"><div> Github </div></a></li>
+            <li><a><div> Doação </div></a></li>
+            <li><a href="/manifest"><div> Manifesto</div></a></li>
+        </ul>
     </body>
 </html>
