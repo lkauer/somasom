@@ -8,3 +8,6 @@ class Artist(models.Model):
     nm_artist = models.CharField(max_length=100)
     ds_artist = models.CharField(max_length=500)
     ph_artist = models.CharField(max_length=500)
+
+    def get_artist_by_id(self):
+        return self

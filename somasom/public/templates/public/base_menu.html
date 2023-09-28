@@ -24,13 +24,20 @@
         </div>
         {% endblock %}
         <br/>
-        <div id="content">
+        <div id="content" style="
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-evenly;
+        align-items: stretch;">
             {% block content %}{% endblock %}
         </div>
         <ul>
             <li><a href="https://github.com/lkauer/somasom" target="_blank"><div> Github </div></a></li>
             <li><a><div> Doação </div></a></li>
             <li><a href="/manifest"><div> Manifesto</div></a></li>
+            <li><a><div> contato@somasom.com.br</div></a></li>
         </ul>
     </body>
 </html>

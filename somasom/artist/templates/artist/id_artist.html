@@ -1,0 +1,44 @@
+{% extends "public/base_menu.html" %}
+
+{% block content %}
+
+<div>
+<h1>{{artist.nm_artist}}</h1>
+<p>{{artist.ds_artist}}</p>
+<img src="{{artist.ph_artist}}"/>
+<p>Perfil criado em: 2022/03/03</p>
+<p>Link para apoio: mepague.com.br</p>
+<button> Reportar artista</button>
+</div>
+{% comment %} <h2>Participantes</h2>
+<p>Aninha</p>
+<p>Lipe</p>
+<p>Luqueta</p> {% endcomment %}
+<div>
+    <h2>Lançamentos</h2>
+    <h2>Albums</h2>
+    <div style="display:flex;">
+            {% if artist_release.fg_release == "1" %}
+                <div style="display: 1; padding: 1%; margin: 1%;">
+                    <a href="/release/album/{{artist_release.id_release}}">
+                        <img src="{{artist_release.ph_release}}"/>
+                        <h4>{{artist_release.nm_release}}</h4>
+                    </a>
+                    {% comment %} <p>2020/01/01</p> {% endcomment %}
+                </div>
+            {% endif %}
+    </div>
+    <h2>Singles</h2>
+    <div style="display:flex;">
+            {% if artist_release.fg_release == "2" %}
+                <div style="display: 1; padding: 1%; margin: 1%;">
+                    <a href="/release/album/{{artist_release.id_release}}">
+                        <img src="{{artist_release.ph_release}}"/>
+                        <h4>{{artist_release.nm_release}}</h4>
+                    </a>
+                    {% comment %} <p>2020/01/01</p> {% endcomment %}
+                </div>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

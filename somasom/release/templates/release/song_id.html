@@ -3,11 +3,13 @@
 {% block content %}
 
 <div>
-<h1>Single bala do mano juqinha</h1>
+<h1>{{release.nm_release}}</h1>
 
-<a href="/artist/2"><h2>Arista Juquinha</h2></a>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<img src="https://f4.bcbits.com/img/a2118766889_7.jpg"/>
+<a href="/artist/{{artist.id_artist}}"><h2>{{artist.nm_artist}}</h2></a>
+<p>{{release.ds_release}}</p>
+<img src="{{release.ph_release}}"/>
+<p> Lançado em: 2023/02/02</p>
+<p> BPM: 150</p>
 </div>
 <h1>Faixa</h1>
 <div>
@@ -20,46 +22,14 @@
 </div>
 <h3>Items da faixa</h3>
 <ul>
-    <li>
+    {% comment %} <li>
         <audio controls autoplay>
             <source src="horse.ogg" type="audio/ogg">
             <source src="horse.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
           </audio>
           <button>download</button>
-    </li>
-    <li>
-        <audio controls autoplay>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-          </audio>
-          <button>download</button>
-    </li>
-    <li>
-        <audio controls autoplay>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-          </audio>
-          <button>download</button>
-    </li>
-    <li>
-        <audio controls autoplay>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-          </audio>
-          <button>download</button>
-    </li>
-    <li>
-        <audio controls autoplay>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-          </audio>
-          <button>download</button>
-    </li>
+    </li> {% endcomment %}
 </ul>
 <div>
     

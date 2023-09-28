@@ -1,79 +1,47 @@
 
-        {% extends "public/base_menu.html" %}
+{% extends "public/base_menu.html" %}
 
-        {% block content %}
+{% block content %}
 
-        <div style="height:30%; width:100%; background-color:green"> </div>
-        <h2>Artistas</h2>
-            <div style="display:flex;">
-                <div style="display: 1; padding: 1%; margin: 1%;">
-                    <a href="/artist/2">
-                        <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-                        <h4>Juquinha</h4>
-                    </a>
-                </div>
-                <div style="display: 1; padding: 1%; margin: 1%;">
-                    <a href="artist/3">
-                        <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                        <h4>coração problema</h4>
-                    </a>
-                </div>
-            </div>
-        <h2>Obras</h2>
-        <h4>Albums</h4>
-        <div style="display:flex;">
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/album/2">
-                    <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-                    <h4>Juquinha</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/album/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/album/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/album/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
-        </div>
-        <h3>Songs</h3>
-        <div style="display:flex;">
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/song/2">
-                    <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-                    <h4>Juquinha</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/song/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/song/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/release/song/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
-        </div>
-        
+<div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
+<h2>Artistas</h2>
+<div id="artists" style="display:flex">
+{% for artist in artist_list %}
+    <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+        <a href="/artist/{{artist.id_artist}}">
+            <img src="{{artist.ph_artist}}"/>
+            <h4>{{ artist.nm_artist }}</h4>
+        </a>
+    </div>
+{% endfor %}
+</div>
+<h2>Obras</h2>
+<h4>Albums</h4>
+<div id="albums" style="display:flex">
+{% for release in release_list %}
+{% if release.fg_release == "1" %}
+    <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+        <a href="/release/album/{{release.id_release}}">
+            <img src="{{release.ph_release}}"/>
+            <h4>{{ release.nm_release }}</h4>
+        </a>
+    </div>
+{% endif %}
+{% endfor %}
+</div>
+<h3>Songs</h3>
+<div id="songs" style="display:flex">
+{% for release in release_list %}
+{% if release.fg_release == "2" %}
+    <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+        <a href="/release/song/{{release.id_release}}">
+            <img src="{{release.ph_release}}"/>
+            <h4>{{ release.nm_release }}</h4>
+        </a>
+    </div>
+{% endif %}
+{% endfor %}
+</div>
 
-        {% endblock %}
+
+{% endblock %}
