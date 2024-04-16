@@ -1,0 +1,7 @@
+# Arquivos de compilação e caches
+*.pyc
+__pycache__/
+node_modules/
+
+# Arquivos de registro
+*.log
