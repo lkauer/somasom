@@ -6,4 +6,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("artist", views.artist, name="artist"),
     path("release", views.release, name="release"),
+    path("create_artist", views.create_artist, name="create_artist"),
+    path("create_release", views.create_release, name="create_release"),
 ]

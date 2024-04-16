@@ -1,29 +1,32 @@
+{% extends "public/base_menu.html" %}
+
 {% block content %}
 
 <div>
     <h1>Cadastro de lançamento </h1>
-    <form>
+    <form action="/manager/create_release" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <h3>Dados do lançamento</h3>
         <label>Nome</label>
-        <input type="text" placeholder="nome"/>
+        <input type="text" id="nm_release" name="nm_release" placeholder="nome"/>
         <br/>
         <label>Descrição</label>
-        <textarea type="text" placeholder="Descrição do artista"> </textarea>
+        <textarea type="text" id="ds_release" name="ds_release" placeholder="Descrição do lançamento"> </textarea>
         <br/>
-        <label>Capa do lançamento</label>
-        <input type="file"/>
-        <br/>
+        <input type="file" id="ph_release" name="ph_release">
+        <input type="hidden" id="fg_release" name="fg_release" value="1">
+        {% comment %} <br/>
         <label>Publico</label>
         <input type="checkbox">
         <br/>
         <label>Single</label>
         <input type="radio" name="release_type">
         <label>Album</label>
-        <input type="radio" name="release_type">
+        <input type="radio" name="release_type"> {% endcomment %}
         {% comment %} <br/> {% endcomment %}
         {% comment %} <label>Arquivo final</label>
         <input type="file"/> {% endcomment %}
-        <br>
+        {% comment %} <br>
         <label>Colaboradores</label>
             <select>
                 <option>Coração problema</option>
@@ -36,8 +39,9 @@
         <br/>
         <label>BPM</label>
         <input type="number" placeholder="75"/>
-        <br/>
-        <button>Adicionar item da faixas</button>
+        <br/> {% endcomment %}
+        {% comment %} <button>Adicionar item da faixas</button> {% endcomment %}
+        <input class="button" type="submit" value="Salvar">
     </form>    
     <a href="/manager"> Voltar </a>
 </div>

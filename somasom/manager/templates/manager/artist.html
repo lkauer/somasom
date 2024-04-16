@@ -1,16 +1,21 @@
+{% extends "public/base_menu.html" %}
+
 {% block content %}
 
 <div>
     <h1>Cadastro de artista </h1>
-    <form>
+    <form action="/manager/create_artist" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <label>Nome</label>
-        <input type="text" placeholder="nome"/>
+        <input type="text" id="nm_artist" name="nm_artist" placeholder="nome"/>
         <br/>
         <label>Descrição</label>
-        <textarea type="text" placeholder="Descrição do artista"> </textarea>
+        <textarea type="text" id="ds_artist" name="ds_artist" placeholder="Descrição do artista"> </textarea>
         <br/>
         <label>Foto do artista</label>
-        <input type="file"/>
+        <input type="file" id="ph_artist" name="ph_artist">
+        <input type="text" id="user_id" name="user_id" value="{{ request.user.user_id }}">
+        <input class="button" type="submit" value="Salvar">
     </form>    
     <a href="/manager"> Voltar </a>
 </div>

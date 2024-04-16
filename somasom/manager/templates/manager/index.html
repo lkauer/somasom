@@ -2,110 +2,120 @@
 
 {% block content %}
 
-<h1>Painel</h1>
-<h2>Dados usuario</h2>
-<div>
-    <label>Nome</label>
-    <input type="text" placeholder="nome"/>
+{% if user.is_authenticated %}
 
-    <label>senha</label>
-    <input type="password" placeholder="**********"/>
+    <h2> Você está logado </h2>
+    <a href="{% url 'logout' %}">Log out</a>
 
-    <label>e-mail</label>
-    <input type="mail" placeholder="lucasgkauer@gmail.com"/>
+    <h1>Painel</h1>
+    <h2>Dados usuario</h2>
+    <div>
+        <label>Nome</label>
+        <input type="text" placeholder="nome"/>
 
-    <button>Deletar conta</button>
-</div>
-<h2>Estatisticas</h2>
-<div>
-    <img src="https://static.todamateria.com.br/upload/gr/af/grafico_ibge_1.jpg"/>
-</div>
-<h2>Artistas</h2><a href="/manager/artist">Criar perfil de  artista</a>
+        <label>senha</label>
+        <input type="password" placeholder="**********"/>
+
+        <label>e-mail</label>
+        <input type="mail" placeholder="lucasgkauer@gmail.com"/>
+
+        <button>Deletar conta</button>
+    </div>
+    {% comment %} <h2>Estatisticas</h2>
+    <div>
+        <img src="https://static.todamateria.com.br/upload/gr/af/grafico_ibge_1.jpg"/>
+    </div> {% endcomment %}
+    <h2>Artistas</h2><a href="/manager/artist">Criar perfil de  artista</a>
+        <pre>{{ artist.user_id }}</pre>
+        <pre>{{ user.user_id }}</pre>
+        <div style="display:flex;">
+            <div style="display: 1; padding: 1%; margin: 1%;">
+                <a href="/artist/2">
+                    <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
+                    <h4>Juquinha</h4>
+                </a>
+            </div>
+            <div style="display: 1; padding: 1%; margin: 1%;">
+                <a href="artist/3">
+                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                    <h4>coração problema</h4>
+                </a>
+            </div>
+        </div>
+    <h2>Obras</h2><a href="/manager/release">Criar nova obra</a>
+    <h4>Albums</h4>
     <div style="display:flex;">
         <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/artist/2">
+            <a href="/release/album/2">
                 <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
                 <h4>Juquinha</h4>
             </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
         </div>
         <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="artist/3">
+            <a href="/release/album/3">
                 <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
                 <h4>coração problema</h4>
             </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
+        </div>
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/release/album/3">
+                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                <h4>coração problema</h4>
+            </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
+        </div>
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/release/album/3">
+                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                <h4>coração problema</h4>
+            </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
         </div>
     </div>
-<h2>Obras</h2><a href="/manager/release">Criar nova obra</a>
-<h4>Albums</h4>
-<div style="display:flex;">
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/album/2">
-            <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-            <h4>Juquinha</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
+    <h3>Songs</h3>
+    <div style="display:flex;">
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/release/song/2">
+                <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
+                <h4>Juquinha</h4>
+            </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
+        </div>
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/release/song/3">
+                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                <h4>coração problema</h4>
+            </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
+        </div>
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/release/song/3">
+                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                <h4>coração problema</h4>
+            </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
+        </div>
+        <div style="display: 1; padding: 1%; margin: 1%;">
+            <a href="/release/song/3">
+                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
+                <h4>coração problema</h4>
+            </a>
+            {% comment %} <label>Visivel</label> {% endcomment %}
+            {% comment %} <input type="checkbox"> {% endcomment %}
+        </div>
     </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/album/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/album/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/album/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-</div>
-<h3>Songs</h3>
-<div style="display:flex;">
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/song/2">
-            <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-            <h4>Juquinha</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/song/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/song/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-    <div style="display: 1; padding: 1%; margin: 1%;">
-        <a href="/release/song/3">
-            <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-            <h4>coração problema</h4>
-        </a>
-        <label>Visivel</label>
-        <input type="checkbox">
-    </div>
-</div>
-
+    {% else %}
+    <h2> Você não está logado </h2>
+    <a href="{% url 'login' %}">Log in</a>
+{% endif %}
 
 {% endblock %}

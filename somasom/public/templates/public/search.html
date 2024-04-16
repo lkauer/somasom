@@ -3,15 +3,67 @@
 
 {% block content %}
 
-<div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
-        <h1>Resultado da pesquisa</h1>
-            <div style="display:flex;">
-                <div style="display: 1; padding: 1%; margin: 1%;">
-                    <a href="/artist/3">
-                        <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                        <h4>coração problema</h4>
+    <h1>Resultado da pesquisa : {{search}}</h1>
+    <div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
+    <div id="artists" style="display:flex">
+    {% if artist_list != None %}
+        {% if artist_iter%}
+            {% for artist in artist_list %}
+                <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+                    <a href="/artist/{{artist.id_artist}}">
+                        <img src="{{ artist.ph_artist.url }}">
+                        <h4>{{ artist.nm_artist }}</h4>
                     </a>
                 </div>
+            {% endfor %}
+        {% else %}
+            <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+                <a href="/artist/{{artist_list.id_artist}}">
+                    <img src="{{ artist_list.ph_artist.url }}">
+                    <h4>{{ artist_list.nm_artist }}</h4>
+                </a>
             </div>
+        {% endif %}
+    {% endif %}
+    </div>
+    <div id="albums" style="display:flex">
+    {% if release_list != None %}
+        {% if artist_iter%}
+            {% for release in release_list %}
+            {% if release.fg_release == "1" %}
+                <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+                    <a href="/release/album/{{release.id_release}}">
+                        <img src="{{release.ph_release}}"/>
+                        <h4>{{ release.nm_release }}</h4>
+                    </a>
+                </div>
+            {% endif %}
+            {% endfor %}
+            </div>
+            <div id="songs" style="display:flex">
+            {% for release in release_list %}
+            {% if release.fg_release == "2" %}
+                <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+                    <a href="/release/song/{{release.id_release}}">
+                        <img src="{{release.ph_release}}"/>
+                        <h4>{{ release.nm_release }}</h4>
+                    </a>
+                </div>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+            <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+                <a href="/release/song/{{release_list.id_release}}">
+                    <img src="{{release_list.ph_release}}"/>
+                    <h4>{{ release_list.nm_release }}</h4>
+                </a>
+            </div>
+        {% endif %}
+    {% endif %}
+    {% if artist_list == None and release_list == None %}
+            <h2>Nada por aqui</h2>
+    {% endif %}
+</div>
+        
 
-            {% endblock %}
+{% endblock %}

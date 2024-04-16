@@ -10,11 +10,12 @@
                 <li><a href="/"><div style="background-color:green; width:100%; height:2%"> Som-A-Som </div></a></li>
                 <li><a href="/artist">Artistas</a></li>
                 <li><a href="/release">Lançamentos</a></li>
-                {% comment %} <li><a href="/manager">Painel</a></li> {% endcomment %}
+                <li><a href="/manager">Painel</a></li>
                 <li>
-                    <form action="/search" style="margin:0">
-                    <a>
-                            <input type="text" id="search" placeholder="Pesquisar artista, lançamento, musica, track">
+                    <form action="/search/" method="GET" style="margin:0">
+                        {% csrf_token %}
+                        <a>
+                            <input type="text" id="search" name="search" placeholder="Pesquisar artista, lançamento, musica, track">
                             <input class="button" type="submit" value="Pesquisar">
                         </a>
                     </form>

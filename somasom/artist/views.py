@@ -22,13 +22,20 @@ def index(request):
 
 def artist(request, id_artist):
     try:
-        artist = Artist.objects.get(pk=id_artist)
-        artist_release = Release.objects.get(artist=id_artist)
         template = loader.get_template("artist/id_artist.html")
-        context = {
-            "artist" : artist,
-            "artist_release" : artist_release
-        }
+        artist = Artist.objects.get(pk=id_artist)
+        try:
+
+            artist_release = Release.objects.get(artist=id_artist)
+            context = {
+                "artist" : artist,
+                "artist_release" : artist_release
+            }
+        except:
+            context = {
+                "artist" : artist,
+                "artist_release" : {}
+            }
     except Artist.DoesNotExist:
         raise Http404("Artist does not exist")
     return HttpResponse(template.render(context, request))

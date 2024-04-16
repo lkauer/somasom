@@ -5,10 +5,10 @@
 <div>
 <h1>{{artist.nm_artist}}</h1>
 <p>{{artist.ds_artist}}</p>
-<img src="{{artist.ph_artist}}"/>
+<img src="{{ artist.ph_artist.url }}">
 <p>Perfil criado em: 2022/03/03</p>
 <p>Link para apoio: mepague.com.br</p>
-<button> Reportar artista</button>
+{% comment %} <button> Reportar artista</button> {% endcomment %}
 </div>
 {% comment %} <h2>Participantes</h2>
 <p>Aninha</p>
