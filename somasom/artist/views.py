@@ -13,13 +13,6 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-# def create(request):
-#     template = loader.get_template("artist/create.html")
-#     context = {
-        
-#     }
-#     return HttpResponse(template.render(context, request))
-
 def artist(request, id_artist):
     try:
         template = loader.get_template("artist/id_artist.html")

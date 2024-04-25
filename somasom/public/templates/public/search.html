@@ -4,14 +4,14 @@
 {% block content %}
 
     <h1>Resultado da pesquisa : {{search}}</h1>
-    <div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
+
     <div id="artists" style="display:flex">
     {% if artist_list != None %}
         {% if artist_iter%}
             {% for artist in artist_list %}
                 <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
                     <a href="/artist/{{artist.id_artist}}">
-                        <img src="{{ artist.ph_artist.url }}">
+                        <img class="materialboxed" width="300" src="{{ artist.ph_artist.url }}">
                         <h4>{{ artist.nm_artist }}</h4>
                     </a>
                 </div>
@@ -19,7 +19,7 @@
         {% else %}
             <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
                 <a href="/artist/{{artist_list.id_artist}}">
-                    <img src="{{ artist_list.ph_artist.url }}">
+                    <img class="materialboxed" width="300" src="{{ artist_list.ph_artist.url }}">
                     <h4>{{ artist_list.nm_artist }}</h4>
                 </a>
             </div>
@@ -33,19 +33,19 @@
             {% if release.fg_release == "1" %}
                 <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
                     <a href="/release/album/{{release.id_release}}">
-                        <img src="{{release.ph_release}}"/>
+                        <img class="materialboxed" width="300" src="{{release.ph_release.url}}"/>
                         <h4>{{ release.nm_release }}</h4>
                     </a>
                 </div>
             {% endif %}
             {% endfor %}
             </div>
-            <div id="songs" style="display:flex">
+            <div id="singles" style="display:flex">
             {% for release in release_list %}
             {% if release.fg_release == "2" %}
                 <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
                     <a href="/release/song/{{release.id_release}}">
-                        <img src="{{release.ph_release}}"/>
+                        <img class="materialboxed" width="300" src="{{release.ph_release.url}}"/>
                         <h4>{{ release.nm_release }}</h4>
                     </a>
                 </div>
@@ -54,7 +54,7 @@
         {% else %}
             <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
                 <a href="/release/song/{{release_list.id_release}}">
-                    <img src="{{release_list.ph_release}}"/>
+                    <img class="materialboxed" width="300" src="{{release_list.ph_release.url}}"/>
                     <h4>{{ release_list.nm_release }}</h4>
                 </a>
             </div>

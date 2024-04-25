@@ -2,12 +2,11 @@
 
 {% block content %}
 
-<div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
 <div style="display:flex;">
     {% for artist in artist_list %}
         <div style="display: 1; padding: 1%; margin: 1%;">
             <a href="/artist/{{artist.id_artist}}">
-                <img src="{{ artist.ph_artist.url }}">
+                <img class="materialboxed" width="300" src="{{ artist.ph_artist.url }}">
                 <h4>{{ artist.nm_artist }}</h4>
             </a>
         </div>

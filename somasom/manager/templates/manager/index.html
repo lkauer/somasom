@@ -5,7 +5,7 @@
 {% if user.is_authenticated %}
 
     <h2> Você está logado </h2>
-    <a href="{% url 'logout' %}">Log out</a>
+    <a class="waves-effect waves-light btn" href="{% url 'logout' %}">Log out</a>
 
     <h1>Painel</h1>
     <h2>Dados usuario</h2>
@@ -17,105 +17,57 @@
         <input type="password" placeholder="**********"/>
 
         <label>e-mail</label>
-        <input type="mail" placeholder="lucasgkauer@gmail.com"/>
+        <input type="text" class="materialize-mail" placeholder="lucasgkauer@gmail.com"/>
 
-        <button>Deletar conta</button>
-    </div>
+        <a class="waves-effect waves-light btn">Deletar conta</a>
+
     {% comment %} <h2>Estatisticas</h2>
     <div>
-        <img src="https://static.todamateria.com.br/upload/gr/af/grafico_ibge_1.jpg"/>
+        <img class="materialboxed" width="300" src="https://static.todamateria.com.br/upload/gr/af/grafico_ibge_1.jpg"/>
     </div> {% endcomment %}
-    <h2>Artistas</h2><a href="/manager/artist">Criar perfil de  artista</a>
-        <pre>{{ artist.user_id }}</pre>
-        <pre>{{ user.user_id }}</pre>
+    <h2>Artistas</h2>
+        <a class="waves-effect waves-light btn" href="/manager/artist" >Novo perfil de artista</a>
         <div style="display:flex;">
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="/artist/2">
-                    <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-                    <h4>Juquinha</h4>
-                </a>
-            </div>
-            <div style="display: 1; padding: 1%; margin: 1%;">
-                <a href="artist/3">
-                    <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                    <h4>coração problema</h4>
-                </a>
-            </div>
+            {% for user_artist in artist %}
+                <div style="display: 1; padding: 1%; margin: 1%;">
+                    {% comment %} <a href="/manager/edit_artist/{{ user_artist.id_artist }}"> {% endcomment %}
+                    <a href="/manager/edit_artist">
+
+                        <img class="materialboxed" width="300" src="{{ user_artist.ph_artist.url }}">
+                        <h4>{{ user_artist.nm_artist }}</h4>
+                    </a>
+                </div>
+            {% endfor %}        
         </div>
-    <h2>Obras</h2><a href="/manager/release">Criar nova obra</a>
+    <a class="waves-effect waves-light btn" href="/manager/release" >Novo Lançamento</a>
     <h4>Albums</h4>
     <div style="display:flex;">
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/album/2">
-                <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-                <h4>Juquinha</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/album/3">
-                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                <h4>coração problema</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/album/3">
-                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                <h4>coração problema</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/album/3">
-                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                <h4>coração problema</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
+        {% for user_release in release %}
+        {% if user_release.fg_release == "1" %}
+            <div style="display: 1; padding: 1%; margin: 1%;">
+                <a href="/release/album/{{ user_release.id_release }}">
+                    <img class="materialboxed" width="300" src="{{ user_release.ph_release.url }}">
+                    <h4>{{ user_release.nm_release }}</h4>
+                </a>
+            </div>
+        {% endif %}
+        {% endfor %}        
     </div>
-    <h3>Songs</h3>
+    <h4>singles</h4>
     <div style="display:flex;">
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/song/2">
-                <img src="https://f4.bcbits.com/img/a0524138248_2.jpg"/>
-                <h4>Juquinha</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/song/3">
-                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                <h4>coração problema</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/song/3">
-                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                <h4>coração problema</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-        <div style="display: 1; padding: 1%; margin: 1%;">
-            <a href="/release/song/3">
-                <img src="https://f4.bcbits.com/img/a0413623548_2.jpg"/>
-                <h4>coração problema</h4>
-            </a>
-            {% comment %} <label>Visivel</label> {% endcomment %}
-            {% comment %} <input type="checkbox"> {% endcomment %}
-        </div>
-    </div>
+        {% for user_release in release %}
+        {% if user_release.fg_release == "2" %}
+            <div style="display: 1; padding: 1%; margin: 1%;">
+                <a href="/release/album/{{ user_release.id_release }}">
+                    <img class="materialboxed" width="300" src="{{ user_release.ph_release.url }}">
+                    <h4>{{ user_release.nm_release }}</h4>
+                </a>
+            </div>
+        {% endif %}
+        {% endfor %}
     {% else %}
     <h2> Você não está logado </h2>
-    <a href="{% url 'login' %}">Log in</a>
+    <a class="waves-effect waves-light btn" href="{% url 'login' %}">Log in</a>
 {% endif %}
 
 {% endblock %}

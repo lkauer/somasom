@@ -10,13 +10,13 @@
         <input type="text" id="nm_artist" name="nm_artist" placeholder="nome"/>
         <br/>
         <label>Descrição</label>
-        <textarea type="text" id="ds_artist" name="ds_artist" placeholder="Descrição do artista"> </textarea>
+        <textarea type="text" id="ds_artist" name="ds_artist" class="materialize-textarea" placeholder="Descrição do artista"> </textarea>
         <br/>
         <label>Foto do artista</label>
         <input type="file" id="ph_artist" name="ph_artist">
-        <input type="text" id="user_id" name="user_id" value="{{ request.user.user_id }}">
-        <input class="button" type="submit" value="Salvar">
+        <input type="hidden" id="user_id" name="user_id" value="{{ request.user.user_id }}">
+        <input type="submit" value="Salvar" class="waves-effect waves-light btn" />
     </form>    
-    <a href="/manager"> Voltar </a>
+    <a href="/manager" class="waves-effect waves-light btn"> Voltar </a>
 </div>
 {% endblock %}

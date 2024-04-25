@@ -9,7 +9,7 @@ class Release(models.Model):
     ds_release = models.CharField(max_length=500)
     ph_release = models.ImageField(upload_to='ph_release/')
     fg_release = models.CharField(max_length=10)
-    # artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='releases')
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, null=True)
 
 def get_release_by_id(self):
     return self

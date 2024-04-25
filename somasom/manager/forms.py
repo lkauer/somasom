@@ -14,4 +14,4 @@ class NewReleaseForm(forms.ModelForm):
     
     class Meta:
         model = Release
-        fields = ['nm_release', 'ds_release', 'ph_release']
+        fields = ['nm_release', 'ds_release', 'ph_release', 'fg_release', 'artist']

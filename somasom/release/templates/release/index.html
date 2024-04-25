@@ -2,15 +2,13 @@
 
 {% block content %}
 
-<div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
-
 <h3>Albums</h3>
 <div style="display:flex;">
     {% for release in release_list %}
         {% if release.fg_release == "1" %}
             <div style="display: 1; padding: 1%; margin: 1%;">
                 <a href="/release/album/{{release.id_release}}">
-                    <img src="{{release.ph_release}}"/>
+                    <img class="materialboxed" width="300" src="{{release.ph_release.url}}"/>
                     <h4>{{ release.nm_release }}</h4>
                 </a>
             </div>
@@ -23,7 +21,7 @@
         {% if release.fg_release == "2" %}
             <div style="display: 1; padding: 1%; margin: 1%;">
                 <a href="/release/song/{{release.id_release}}">
-                    <img src="{{release.ph_release}}"/>
+                    <img class="materialboxed" width="300" src="{{release.ph_release.url}}"/>
                     <h4>{{ release.nm_release }}</h4>
                 </a>
             </div>

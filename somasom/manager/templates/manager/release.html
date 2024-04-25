@@ -7,42 +7,53 @@
     <form action="/manager/create_release" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h3>Dados do lançamento</h3>
-        <label>Nome</label>
-        <input type="text" id="nm_release" name="nm_release" placeholder="nome"/>
+        <div class="row">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" id="nm_release" name="nm_release" placeholder="nome"/>
+                  <label>Nome</label>
+                </div>
+                <div class="row">
+                      <div class="row">
+                        <div class="input-field col s12">
+                            <textarea type="text" id="ds_release" name="ds_release" placeholder="Descrição do lançamento" class="materialize-textarea"> </textarea>
+                            <label for="ds_release">Descrição</label>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            <div class="row">
+                    <div >
+                      <input type="file" id="ph_release" name="ph_release">
+                    </div>
+            </div>
+            <div class="row">
+                <label for="artist">Seleção de artista</label>
+                <select id="artist" name="artist" class="browser-default">
+                    <option value="" disabled selected>Escolha o artista</option>
+                    {% for user_artist in artist %}
+                        <option value="{{ user_artist.id_artist }}">{{ user_artist.nm_artist }}</option>
+                    {% endfor %}
+                  </select>
+            </div>
+          </div>
+          <p>
+            <p>
+                <label>
+                  <input name="fg_release" type="radio" value="2" checked/>
+                  <span>Single</span>
+                </label>
+              </p>
+            <label>
+              <input name="fg_release" type="radio" value="1" />
+              <span>Album</span>
+            </label>
+          </p>
+                
+        <input type="submit" value="Salvar" class="waves-effect waves-light btn" />
         <br/>
-        <label>Descrição</label>
-        <textarea type="text" id="ds_release" name="ds_release" placeholder="Descrição do lançamento"> </textarea>
-        <br/>
-        <input type="file" id="ph_release" name="ph_release">
-        <input type="hidden" id="fg_release" name="fg_release" value="1">
-        {% comment %} <br/>
-        <label>Publico</label>
-        <input type="checkbox">
-        <br/>
-        <label>Single</label>
-        <input type="radio" name="release_type">
-        <label>Album</label>
-        <input type="radio" name="release_type"> {% endcomment %}
-        {% comment %} <br/> {% endcomment %}
-        {% comment %} <label>Arquivo final</label>
-        <input type="file"/> {% endcomment %}
-        {% comment %} <br>
-        <label>Colaboradores</label>
-            <select>
-                <option>Coração problema</option>
-                <option>Batuca na bituca</option>
-            </select>
-            <br/>
-        <h3>faixas do lançamento</h3>
-        <label>guia</label>
-        <input type="file"/>
-        <br/>
-        <label>BPM</label>
-        <input type="number" placeholder="75"/>
-        <br/> {% endcomment %}
-        {% comment %} <button>Adicionar item da faixas</button> {% endcomment %}
-        <input class="button" type="submit" value="Salvar">
-    </form>    
-    <a href="/manager"> Voltar </a>
+    </form> 
+    <br/>   
+    <a class="waves-effect waves-light btn" href="/manager"> Voltar </a>
 </div>
 {% endblock %}

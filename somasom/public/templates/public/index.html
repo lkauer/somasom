@@ -3,39 +3,39 @@
 
 {% block content %}
 
-<div style="height:200px; width:100%; background-color:green; display:flex; flex-wrap: wrap;"> </div>
 <h2>Artistas</h2>
-<div id="artists" style="display:flex">
-{% for artist in artist_list %}
-    <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
-        <a href="/artist/{{artist.id_artist}}">
-            <img src="{{ artist.ph_artist.url }}">
-            <h4>{{ artist.nm_artist }}</h4>
-        </a>
-    </div>
-{% endfor %}
+<div id="artists" class="row">
+        {% for artist in artist_list %}
+            <div class="grid-example col s12 m3">
+                <a href="/artist/{{artist.id_artist}}">
+                    <img class="materialboxed" width="300" src="{{ artist.ph_artist.url }} ">
+                    <h4>{{ artist.nm_artist }}</h4>
+                </a>
+            </div>
+        {% endfor %}
 </div>
 <h2>Obras</h2>
 <h4>Albums</h4>
-<div id="albums" style="display:flex">
-{% for release in release_list %}
-{% if release.fg_release == "1" %}
-    <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
-        <a href="/release/album/{{release.id_release}}">
-            <img src="{{release.ph_release}}"/>
-            <h4>{{ release.nm_release }}</h4>
-        </a>
-    </div>
-{% endif %}
-{% endfor %}
+<div id="albums" class="row">
+    {% for release in release_list %}
+    {% if release.fg_release == "1" %}
+        <div class="grid-example col s12 m3">
+            <a href="/release/album/{{release.id_release}}">
+                <img class="materialboxed" width="300" src="{{release.ph_release.url}}"/>
+                <h4>{{ release.nm_release }}</h4>
+            </a>
+        </div>
+    {% endif %}
+    {% endfor %}    
 </div>
-<h3>Songs</h3>
-<div id="songs" style="display:flex">
+
+<h3>singles</h3>
+<div id="singles" style="display:flex">
 {% for release in release_list %}
 {% if release.fg_release == "2" %}
-    <div style="flex: 1; padding: 1%; margin: 1%; flex-wrap: wrap; max-width:30%">
+    <div class="responsive-table">
         <a href="/release/song/{{release.id_release}}">
-            <img src="{{release.ph_release}}"/>
+            <img class="materialboxed" width="300" src="{{release.ph_release.url}}"/>
             <h4>{{ release.nm_release }}</h4>
         </a>
     </div>

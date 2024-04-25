@@ -5,10 +5,11 @@
 <div>
 <h1>{{artist.nm_artist}}</h1>
 <p>{{artist.ds_artist}}</p>
-<img src="{{ artist.ph_artist.url }}">
+<img class="materialboxed" width="300" src="{{ artist.ph_artist.url }}">
 <p>Perfil criado em: 2022/03/03</p>
 <p>Link para apoio: mepague.com.br</p>
-{% comment %} <button> Reportar artista</button> {% endcomment %}
+{% comment %} <a class="waves-effect waves-light btn">
+ Reportar artista</a> {% endcomment %}
 </div>
 {% comment %} <h2>Participantes</h2>
 <p>Aninha</p>
@@ -21,7 +22,7 @@
             {% if artist_release.fg_release == "1" %}
                 <div style="display: 1; padding: 1%; margin: 1%;">
                     <a href="/release/album/{{artist_release.id_release}}">
-                        <img src="{{artist_release.ph_release}}"/>
+                        <img class="materialboxed" width="300" src="{{artist_release.ph_release.url}}"/>
                         <h4>{{artist_release.nm_release}}</h4>
                     </a>
                     {% comment %} <p>2020/01/01</p> {% endcomment %}
@@ -33,7 +34,7 @@
             {% if artist_release.fg_release == "2" %}
                 <div style="display: 1; padding: 1%; margin: 1%;">
                     <a href="/release/album/{{artist_release.id_release}}">
-                        <img src="{{artist_release.ph_release}}"/>
+                        <img class="materialboxed" width="300" src="{{artist_release.ph_release.url}}"/>
                         <h4>{{artist_release.nm_release}}</h4>
                     </a>
                     {% comment %} <p>2020/01/01</p> {% endcomment %}
